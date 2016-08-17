@@ -1,0 +1,114 @@
+html {
+	height: 100%;
+}
+
+body {
+	padding: 0px;
+	margin: 0px;
+	height: 100%;
+}
+
+.main {
+	padding: 1% 7% 1% 17%;
+	height: 100%;
+	background-color: #cd6969;
+}
+
+.main :first-child {
+	text-align: end;
+	margin-bottom: 1%;
+}
+
+.start-button:first-child {
+	background-color: green;
+	color: white;
+	text-align: center;
+	width: 8%;
+	height: 100%;
+}
+
+.game-field {
+	width: 70%;
+	height: 70%;
+	border: 2px solid #d4cdcd;
+	border-radius: 1%;
+	padding: 1% 1% 1% 1%;
+}
+
+.column {
+	float: left;
+	width: 20%;
+	height: 100%;
+}
+
+.column :nth-child(2) {
+	margin: 0.5% 0 0.5% 0;
+}
+
+.column>div:first-child, .column>div:last-child {
+	border: 2px solid #d4cdcd;
+	border-radius: 6%;
+}
+
+.column>div {
+	height: 33%;
+}
+
+.column p {
+	margin: auto;
+	text-align: center;
+}
+
+.main-images {
+	height: 50%;
+	width: 50%;
+	margin: 25%;
+}
+
+.field-container {
+	float: left;
+	width: 60%;
+	height: 100%;
+}
+
+.field {
+	position: relative;
+	width: 98%;
+	height: 100%;
+	border: 2px solid #d4cdcd;
+	margin: auto;
+	border-radius: 2%;
+}
+
+.resource {
+	position: absolute;
+	background-repeat: no-repeat;
+	width: 16%;
+	height: 16%;
+	cursor: pointer;
+}
+
+.cheese {
+	background-image: url("img/cheese.png");
+}
+
+.orange {
+	background-image: url("img/orange.png");
+}
+
+.cherry {
+	background-image: url("img/cherry.png");
+}
+
+.pumpkin {
+	background-image: url("img/pumpkin.png");
+}
+
+.bomb {
+	background-image: url("img/bomb.png");
+}
+
+.click-taboo {
+	cursor: default;
+	pointer-events: none;
+}
