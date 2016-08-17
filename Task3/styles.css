@@ -30,4 +30,29 @@
 	width: 60%;
 	margin: auto;
 	margin-bottom: 10px;
+	text-align: center;
+	border-radius: 3px;
+	cursor: pointer;
+	background-color: #4caf50;
+}
+
+.container-buttons .disable-button {
+	cursor: auto;
+	background-color: #f44336;
+}
+
+.background-color-orange {
+	background-color: #ff9800;
+}
+
+.background-color-red {
+	background-color: #f44336;
+}
+
+.background-color-green {
+	background-color: #4caf50;
+}
+
+.background-color-white {
+	background-color: #ffffff;
 }

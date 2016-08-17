@@ -16,13 +16,13 @@ function generateElements(count) {
 function setColorToElements(elements) {
 	for (var i = 0; i < elements.length; i++) {
 		if (elements[i].number > 75) {
-			elements[i]["color"] = "#f44336";
+			elements[i]["backgroundColor"] = "background-color-orange";
 		} else if (elements[i].number > 50) {
-			elements[i]["color"] = "#ff9800";
+			elements[i]["backgroundColor"] = "background-color-red";
 		} else if (elements[i].number > 25) {
-			elements[i]["color"] = "#4caf50";
+			elements[i]["backgroundColor"] = "background-color-green";
 		} else {
-			elements[i]["color"] = "#FFFFFF";
+			elements[i]["backgroundColor"] = "background-color-white";
 		}
 	}
 }

@@ -1,48 +1,57 @@
-var elements = [];
+$(document).ready(function() {
+	
+	var elements = [];
 
-function generateEvent() {
-	if (elements.length == 0) {
-		elements = generateElements(75);
-		traceInfo("elements created");
+	function generateEvent() {
+		if (elements.length == 0) {
+			elements = generateElements(75);
+			traceInfo("elements created");
 
-		for (var i = 0; i < elements.length; i++) {
-			$(".container-field").append("<div class=\"blockElement\">" + elements[i].number + "</div>");
-			traceInfo("element" + i + " was add");
+			for (var i = 0; i < elements.length; i++) {
+				$(".container-field").append("<div class=\"blockElement\">" + elements[i].number + "</div>");
+				traceInfo("element" + i + " was add");
+			}
 		}
+
+		changeButtonState("#generateButton", null);
+		changeButtonState("#setColorButton", setColorEvent);
+		changeButtonState("#resetButton", resetEvent);
 	}
 
-	activateButtons(true, false, false);
-}
+	function setColorEvent() {
+		setColorToElements(elements);
+		var i = 0;
 
-function setColorEvent() {
-	setColorToElements(elements);
-	var i = 0;
+		$(".container-field .blockElement").addClass(function() {
+			traceInfo("element" + i + " is colored");
+			return elements[i++].backgroundColor;
+		});
 
-	$(".container-field .blockElement").css("background-color", function() {
-		traceInfo("element" + i + " is colored");
-		return elements[i++].color;
-	});
+		changeButtonState("#setColorButton", null);
+	}
 
-	$("#setColorButton").attr("disabled", true);
-}
+	function resetEvent() {
+		elements = resetElements();
 
-function resetEvent() {
-	elements = resetElements();
+		$(".container-field .blockElement").remove();
+		changeButtonState("#generateButton", generateEvent);
+		changeButtonState("#resetButton", null);
+	}
 
-	$(".container-field .blockElement").remove();
-	activateButtons(false, true, true);
-}
+	function changeButtonState(buttonId, handler) {
+		$button = $(buttonId);
 
-function activateButtons(generateDisable, setColorDisable, resetDisable) {
-	$("#generateButton").attr("disabled", generateDisable);
-	$("#setColorButton").attr("disabled", setColorDisable);
-	$("#resetButton").attr("disabled", resetDisable);
-}
+		if (handler == null) {
+			$button.unbind("click");
+		} else {
+			$button.bind("click", handler);
+		}
 
-$(document).ready(function() {
-	    $("#generateButton").bind("click", generateEvent);
-		$("#setColorButton").bind("click", setColorEvent);
-		$("#resetButton").bind("click", resetEvent);
+		$button.toggleClass("disable-button");
+	}
 
-		activateButtons(false, true, true);
-    });
+	$("#generateButton").bind("click", generateEvent);
+
+	changeButtonState("#setColorButton", null);
+	changeButtonState("#resetButton", null);
+});
